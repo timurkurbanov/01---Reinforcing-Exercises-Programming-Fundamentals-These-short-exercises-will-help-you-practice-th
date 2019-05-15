@@ -5,7 +5,8 @@ class BankAccount:
 #class variable same value for all accounts.  
 #Add another class variable called accounts that starts as an empty list. This will eventually store the collection of all bank accounts in the bank.
 #Add an __init__() balance to zero. Balance is stored in an instance variable.
-    def __init__(self, initial_balance = 0):
+    
+    def __init__(self, initial_balance):
         self.balance = initial_balance
 
 #Add an method deposit  number as an argument adds that amount to the account's balance.
@@ -13,7 +14,6 @@ class BankAccount:
     def deposit(self, amount):
         self.balance += amount
         return self.balance
-
 
 #Add instance method withdraw accepts number, subtracts that amount from the account's balance.
     def withdraw(self, amount):
@@ -25,7 +25,7 @@ class BankAccount:
 #+adds the new object to the accounts class variable so that we can find it again in the future. 
 #+This method should return the new account object. 
     @classmethod
-    def create_bank_account(cls, initial_balance = 0):
+    def create_bank_account(cls, initial_balance):
         the_bank_account = BankAccount()
         cls.accounts.append(the_bank_account)
         return the_bank_account
@@ -45,6 +45,7 @@ class BankAccount:
     def interest_time(cls):
         for account in cls.accounts:
             account.balance += account.balance * cls.interest_rate
+
 
 my_account = BankAccount.create_bank_account()
 your_account = BankAccount.create_bank_account()
